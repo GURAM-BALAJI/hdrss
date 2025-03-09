@@ -315,7 +315,7 @@ export async function editServiceAndProductDocs(
         db,
         `${type}/${rootprevious}/${rootprevious}col/${beforeprevious}/${beforeprevious}col/${previous}/${previous}col/${id}`
       ),
-      data
+      Object.fromEntries(Object.entries(data).filter(([_, v]) => v !== undefined))
     );
     console.log("doc updated");
   } catch (e) {
